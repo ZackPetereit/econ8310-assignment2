@@ -35,8 +35,8 @@ test_data_aligned = pd.get_dummies(test_data)
 test_data_aligned = test_data_aligned.reindex(columns=X_train.columns, fill_value=0)
 
 # Generate predictions
-pred = modelFit.predict(test_data_aligned)
+predict = modelFit.predict(test_data_aligned)
 
 # Save predictions as a series
-pred_series = pd.Series(pred, name="Predictions")
+pred = pd.Series(predict, name="Predictions")
 print(pred_series)
