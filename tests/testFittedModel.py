@@ -20,15 +20,10 @@ from assignment2 import model, modelFit, pred
 # Run the checks
 
 class testCases(unittest.TestCase):
-    def testFittedModel(self):
-        if hasattr(modelFit, 'tree_'):
-            self.assertTrue(True)
-        elif hasattr(modelFit, 'coef_'):
-            self.assertTrue(True)
-        elif hasattr(modelFit, 'coef_'):
-            self.assertTrue(True)
-        elif hasattr(model, '_Booster'):
-            self.assertTrue(True)
-        else:
-            self.assertTrue(False)
+    def testValidModel(self):
+        modelType=str(type(model))
+        valid = any(candidate in modelType
+    for candidate in 
+                    ['DecisionTreeClassifier', 'RandomForestClassifier', 'XGBClassifier', 'GradientBoostingClassifier'])
+        self.assertTrue(valid)
             
