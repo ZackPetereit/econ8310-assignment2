@@ -44,5 +44,5 @@ test_data_aligned = test_data_aligned.reindex(columns=X_train.columns, fill_valu
 predict = modelFit.predict(test_data_aligned)
 
 # Save predictions as a series
-pred = pd.Series(predict, name="Predictions")
+pred = pd.Series(modelFit.predict_proba(test_data_aligned)[:, 1], name="Predictions")
 print(pred)  # Output predictions
