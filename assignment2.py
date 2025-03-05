@@ -22,7 +22,7 @@ categorical_columns = X.select_dtypes(include=["object"]).columns
 X = pd.get_dummies(X, columns=categorical_columns, drop_first=True)
 
 # Split the data into training and validation sets
-X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, n_estimators= 200, max_depth = 20, min_samples_split = 5, random_state=42)
 
 # Step 3: Train the Random Forest model
 model = RandomForestClassifier(random_state=42)  # Instantiate the model
