@@ -25,7 +25,7 @@ X = pd.get_dummies(X, columns=categorical_columns, drop_first=True)
 X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state= 42)
 
 # Step 3: Train the Random Forest model
-model = RandomForestClassifier(random_state= 42)  # Instantiate the model
+model = RandomForestClassifier(n_estimators=200, max_depth=50,random_state= 42)  # Instantiate the model
 modelFit = model.fit(X_train, y_train)  # Fit the model to training data
 
 # Step 4: Evaluate the model
