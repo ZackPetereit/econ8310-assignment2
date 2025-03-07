@@ -7,7 +7,7 @@ import numpy as np
 
 
 # Step 1: Load the training data
-train_url = ("https://github.com/dustywhite7/Econ8310/raw/master/AssignmentData/assignment3.csv")
+train_url = ("assignment2train.csv")
 data = pd.read_csv(train_url)
 
 # Step 2: Define features (X) and target (y)
@@ -25,7 +25,7 @@ X = pd.get_dummies(X, columns=categorical_columns, drop_first=True)
 X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2)
 
 # Step 3: Train the Random Forest model
-model = RandomForestClassifier()  # Instantiate the model
+model = RandomForestClassifier(n_estimators=1000, max_depth=20)  # Instantiate the model
 modelFit = model.fit(X_train, y_train)  # Fit the model to training data
 
 # Step 4: Evaluate the model
@@ -33,7 +33,7 @@ y_pred_val = modelFit.predict(X_val)  # Generate predictions on validation data
 print("Validation Accuracy:", accuracy_score(y_val, y_pred_val))  # Print accuracy
 
 # Step 5: Load the test data
-test_url = "https://github.com/dustywhite7/Econ8310/raw/master/AssignmentData/assignment3test.csv"
+test_url = "assignment2test.csv"
 test_data = pd.read_csv(test_url)
 
 # Align test data with training data columns
