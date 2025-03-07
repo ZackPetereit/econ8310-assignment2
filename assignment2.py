@@ -7,7 +7,7 @@ import numpy as np
 
 
 # Step 1: Load the training data
-train_url = ("assignment2train.csv")
+train_url = ("https://github.com/dustywhite7/Econ8310/raw/master/AssignmentData/assignment3.csv")
 data = pd.read_csv(train_url)
 
 # Step 2: Define features (X) and target (y)
@@ -33,7 +33,7 @@ y_pred_val = modelFit.predict(X_val)  # Generate predictions on validation data
 print("Validation Accuracy:", accuracy_score(y_val, y_pred_val))  # Print accuracy
 
 # Step 5: Load the test data
-test_url = "assignment2test.csv"
+test_url = "https://github.com/dustywhite7/Econ8310/raw/master/AssignmentData/assignment3test.csv"
 test_data = pd.read_csv(test_url)
 
 # Align test data with training data columns
