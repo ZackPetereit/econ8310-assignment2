@@ -24,7 +24,7 @@ X = pd.get_dummies(X, columns=categorical_columns, drop_first=True)
 X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2)
 
 # Step 3: Train the Random Forest model
-model = RandomForestClassifier(n_estimators= 500, max_depth = 30, min_samples_split = 5, min_samples_leaf= 2)  # Instantiate the model
+model = RandomForestClassifier(n_estimators= 200, max_depth = 20, min_samples_split = 5, min_samples_leaf= 2)  # Instantiate the model
 modelFit = model.fit(X_train, y_train)  # Fit the model to training data
 
 # Step 4: Evaluate the model
@@ -42,6 +42,5 @@ test_data_aligned = test_data_aligned.reindex(columns=X_train.columns, fill_valu
 # Generate predictions
 predict = modelFit.predict(test_data_aligned)
 
-# Save predictions as a series
-pred = pd.Series(modelFit.predict_proba(test_data_aligned)[:, 1], name="Predictions")
+pred = pd.Series(predict, name="Predictions")
 print(pred)  # Output predictions
