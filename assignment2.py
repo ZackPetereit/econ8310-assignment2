@@ -3,7 +3,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.tree import DecisionTreeClassifier
-import numpy as np
 
 
 # Step 1: Load the training data
@@ -25,7 +24,7 @@ X = pd.get_dummies(X, columns=categorical_columns, drop_first=True)
 X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Step 3: Train the Random Forest model
-model = RandomForestClassifier(random_state=42)  # Instantiate the model
+model = RandomForestClassifier(n_estimators= 500, max_depth = 5, min_samples_split = 5, random_state=42)  # Instantiate the model
 modelFit = model.fit(X_train, y_train)  # Fit the model to training data
 
 # Step 4: Evaluate the model
